@@ -58,8 +58,8 @@ public abstract class FiguraComp implements Figura, Comparable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.dim1) ^ (Double.doubleToLongBits(this.dim1) >>> 32));
-        hash = 41 * hash + (int) (Double.doubleToLongBits(this.dim2) ^ (Double.doubleToLongBits(this.dim2) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.dim1) ^ (Double.doubleToLongBits(this.dim1) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.dim2) ^ (Double.doubleToLongBits(this.dim2) >>> 32));
         return hash;
     }
 
