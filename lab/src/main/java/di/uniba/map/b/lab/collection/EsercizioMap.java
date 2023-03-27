@@ -43,9 +43,9 @@ public class EsercizioMap {
         for (Map.Entry<String, Integer> i : map.entrySet()) {
             System.out.println("Key: " + i.getKey() + " Count: " + i.getValue());
         }
-        /*for (String k : map.keySet()) {
+        for (String k : map.keySet()) {
             System.out.println("Key: " + k + " Count: " + map.get(k));
-        }*/
+        }
         /*Iterator<String> it = map.keySet().iterator();
         while (it.hasNext()) {
             String k = it.next();

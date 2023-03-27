@@ -17,6 +17,7 @@
 package di.uniba.map.b.lab.collection;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -31,12 +32,19 @@ public class EsempioSet1 {
      * @param args
      */
     public static void main(String[] args) {
-        Set<String> set = new LinkedHashSet<>();
-        //Set<String> set = new HashSet<>();
+        //Set<String> set = new LinkedHashSet<>();
+        Set<String> set = new HashSet<>();
         set.add("a");
         set.add("a");
         set.add("c");
         set.add("b");
+        for (String s:set) {
+            System.out.println(s);
+        }
+        Iterator<String> it=set.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
         System.out.println(set.size() + ": " + set);
         set.remove("a");
         System.out.println(set.size() + ": " + set);
