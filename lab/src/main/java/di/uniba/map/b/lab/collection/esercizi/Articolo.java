@@ -143,6 +143,7 @@ public class Articolo {
      *
      * @return
      */
+    @Override
     public String toString() {
         return id + ", " + desc + ", prezzo=" + prezzo + ", peso=" + peso;
     }

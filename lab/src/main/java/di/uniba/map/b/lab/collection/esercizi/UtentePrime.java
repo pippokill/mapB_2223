@@ -24,6 +24,7 @@ public class UtentePrime extends Utente {
      *
      * @param ordine
      */
+    @Override
     public void calcolaOrdine(Ordine ordine) {
         ordine.calcolaCostoMerce();
         ordine.setCostoSpedizione(1);

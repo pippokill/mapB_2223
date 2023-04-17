@@ -121,6 +121,7 @@ public class Ordine {
      *
      * @return
      */
+    @Override
     public String toString() {
         return "Utente=" + utente.getUsername() + ", " + costoMerce + ", " + costoSpedizione;
     }

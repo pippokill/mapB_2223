@@ -39,10 +39,9 @@ public class ScannerNumber {
             while (s.hasNext()) {
                 if (s.hasNextDouble()) {
                     double v = s.nextDouble();
-                    System.out.println(v);
                     sum += v;
                 } else {
-                    s.next();
+                    System.out.println(s.next());
                 }
             }
         } finally {
