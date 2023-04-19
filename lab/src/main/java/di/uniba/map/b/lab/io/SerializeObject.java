@@ -38,10 +38,12 @@ public class SerializeObject {
         FileOutputStream outFile = new FileOutputStream("resources/car.dat");
         ObjectOutputStream outStream = new ObjectOutputStream(outFile);
         outStream.writeObject(myCar);
+        outStream.close();
 
         FileInputStream inFile = new FileInputStream("resources/car.dat");
         ObjectInputStream inStream = new ObjectInputStream(inFile);
         Car loadCar = (Car) inStream.readObject();
+        inStream.close();
         System.out.println(loadCar);
 
     }

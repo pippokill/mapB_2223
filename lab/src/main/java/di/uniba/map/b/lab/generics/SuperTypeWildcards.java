@@ -28,17 +28,16 @@ public class SuperTypeWildcards {
     static void writeTo(List<? super Apple> apples) {
         apples.add(new Apple());
         apples.add(new Jonathan());
+        //apples.add(new Orange()); // Orange doesn’t extend Apple
         //apples.add(new Fruit()); // Fruit doesn’t extend Apple
     }
-    
+
     public static void main(String[] args) {
-        List<Object> l=new ArrayList<>();
+        List<Apple> l = new ArrayList<>();
         writeTo(l);
-        List<Fruit> f=new ArrayList<>();
-        writeTo(f);
-        //List<Jonathan> j=new ArrayList<>();
-        //writeTo(j);
+        for (Apple o : l) {
+            System.out.println(o.getClass().getName());
+        }
     }
-    
-    
+
 }

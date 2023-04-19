@@ -35,13 +35,16 @@ public class SerializeTransientObject {
      */
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         User myUser = new User("pippo", "1234");
+        System.out.println(myUser);
         FileOutputStream outFile = new FileOutputStream("resources/user.dat");
         ObjectOutputStream outStream = new ObjectOutputStream(outFile);
         outStream.writeObject(myUser);
+        outStream.close();
 
         FileInputStream inFile = new FileInputStream("resources/user.dat");
         ObjectInputStream inStream = new ObjectInputStream(inFile);
         User loadUser = (User) inStream.readObject();
+        inStream.close();
         System.out.println(loadUser);
 
     }

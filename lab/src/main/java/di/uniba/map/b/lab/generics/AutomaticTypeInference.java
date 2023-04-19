@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @author pierpaolo
  */
-public class LimitsOfInference {
+public class AutomaticTypeInference {
 
     static void f(List<String> list) {
     }
@@ -32,8 +32,8 @@ public class LimitsOfInference {
      * @param args
      */
     public static void main(String[] args) {
-        //Questa cosa non è più vera dalla JDK 8: https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html
-        f(New.list()); //non compila, non posso determinare il tipo in questo punto del codice
-        //f(New.<String>list()); //compila
+        //Inferenza automatica del tipo https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html
+        f(New.list()); 
+        f(New.<String>list());
     }
 }

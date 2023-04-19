@@ -66,6 +66,7 @@ class Nave implements Serializable {
             new Nave("nave 1");
             new Nave("nave 2");
             Nave n3 = new Nave("nave 3");
+            System.out.println(n3);
             n3.salva();
             Nave n3s = Nave.carica();
             System.out.println(n3s);

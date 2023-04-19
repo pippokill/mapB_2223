@@ -51,10 +51,10 @@ public class New {
      * @param args
      */
     public static void main(String[] args) {
-        //Il metodo map() non conosce i tipi passati
-        // per argomento
-        //Questa cosa non è più vera dalla JDK 8 ed è possibile fare inferenza
+        //Inferenza automatica assegnazione anche come risultato di un metodo
+        List<String> l = new ArrayList();
         Map<String, List<String>> sls = New.map();
         List<String> ls = New.list();
+
     }
 }

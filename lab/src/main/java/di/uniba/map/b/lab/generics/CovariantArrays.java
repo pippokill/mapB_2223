@@ -16,9 +16,6 @@
  */
 package di.uniba.map.b.lab.generics;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author pierpaolo
@@ -39,13 +36,13 @@ public class CovariantArrays {
             fruit[0] = new Fruit(); // ArrayStoreException
             //errore a run-time, ma non a compile-time
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("ERROR: "+e);
         }
         try {
             // Compiler allows you to add Oranges:
             fruit[0] = new Orange(); // ArrayStoreException
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println("ERROR: "+e);
         }
     }
 }
