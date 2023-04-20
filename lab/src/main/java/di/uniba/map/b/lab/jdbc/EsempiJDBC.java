@@ -68,12 +68,16 @@ public class EsempiJDBC {
             pstm.executeUpdate();
             pstm.close();
             stm = conn.createStatement();
+            System.out.println("SQL Query");
+            System.out.println("=======================");
             ResultSet rs = stm.executeQuery("SELECT artId, desc FROM store WHERE unit>5");
             while (rs.next()) {
                 System.out.println(rs.getInt(1) + ": " + rs.getString(2));
             }
             rs.close();
             stm.close();
+            System.out.println("SQL Query");
+            System.out.println("=======================");
             pstm = conn.prepareStatement("SELECT artId, desc FROM store WHERE unit>?");
             pstm.setInt(1, 20);
             rs = pstm.executeQuery();
@@ -82,7 +86,21 @@ public class EsempiJDBC {
             }
             rs.close();
             stm.close();
-            //DatabaseMetaData metaData = conn.getMetaData();
+            // DB Schema
+            System.out.println("DB Schema");
+            System.out.println("=======================");
+            DatabaseMetaData metaData = conn.getMetaData();
+            ResultSet tables = metaData.getTables("", "", null, null);
+            while (tables.next()) {
+                String tableName = tables.getString(3);
+                System.out.println("Table: " + tableName);
+                ResultSet columns = metaData.getColumns("", "", tableName, null);
+                while (columns.next()) {
+                    System.out.println("Column: " + columns.getString(4) + "\t" + columns.getString(6));
+                }
+                columns.close();
+            }
+            tables.close();
             conn.close();
         } catch (SQLException ex) {
             System.err.println(ex.getSQLState() + ": " + ex.getMessage());
