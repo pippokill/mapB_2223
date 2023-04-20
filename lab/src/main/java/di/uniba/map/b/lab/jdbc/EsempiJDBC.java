@@ -82,7 +82,7 @@ public class EsempiJDBC {
             pstm.setInt(1, 20);
             rs = pstm.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getInt(1) + ": " + rs.getString(2));
+                System.out.println(rs.getInt("artId") + ": " + rs.getString("desc"));
             }
             rs.close();
             stm.close();
