@@ -50,7 +50,7 @@ public class FireHouseGame extends GameDescription {
         ovest.setAlias(new String[]{"o", "O", "Ovest", "OVEST"});
         getCommands().add(ovest);
         Command end = new Command(CommandType.END, "end");
-        end.setAlias(new String[]{"end", "fine", "esci", "muori", "ammazzati", "ucciditi", "suicidati","exit"});
+        end.setAlias(new String[]{"end", "fine", "esci", "muori", "ammazzati", "ucciditi", "suicidati", "exit"});
         getCommands().add(end);
         Command look = new Command(CommandType.LOOK_AT, "osserva");
         look.setAlias(new String[]{"guarda", "vedi", "trova", "cerca", "descrivi"});
@@ -62,7 +62,7 @@ public class FireHouseGame extends GameDescription {
         open.setAlias(new String[]{});
         getCommands().add(open);
         Command push = new Command(CommandType.PUSH, "premi");
-        push.setAlias(new String[]{"spingi","attiva"});
+        push.setAlias(new String[]{"spingi", "attiva"});
         getCommands().add(push);
         //Rooms
         Room hall = new Room(0, "Corridoio", "Sei appena tornato a casa e non sai cosa fare.\nTi ricordi che non hai ancora aperto quel fantastico regalo di tua zia Lina.\n"
@@ -106,6 +106,11 @@ public class FireHouseGame extends GameDescription {
         toy.setPushable(true);
         toy.setPush(false);
         wardrobe.add(toy);
+        AdvObject kkey = new AdvObject(4, "chiave", "Usa semplice chiave come tante altre.");
+        toy.setAlias(new String[]{"key"});
+        toy.setPushable(false);
+        toy.setPush(false);
+        kitchen.getObjects().add(kkey);
         //set starting room
         setCurrentRoom(hall);
     }
