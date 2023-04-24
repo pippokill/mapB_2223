@@ -14,47 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package di.uniba.map.b.lab.concorrente;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
-
-    /**
-     *
-     * @param <K>
-     * @param <V>
-     * @return
-     */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
-    }
-
-    /**
-     *
-     * @param <T>
-     * @return
-     */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
+public class ThreadEs1 {
 
     /**
      *
      * @param args
+     * @throws InterruptedException
      */
-    public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
-
+    public static void main(String[] args) throws InterruptedException {
+        Thread pari = new Thread(new Pari(), "Pari");
+        Thread dispari = new Thread(new Dispari(), "Dispari");
+        pari.start();
+        dispari.start();
+        while (pari.isAlive()) {
+            Thread.sleep(1000);
+            System.out.println("Attendo...");
+        }
+        System.out.println(pari.getName() + " è terminato, attendo che " + dispari.getName() + " termini...");
+        dispari.join();
+        System.out.println("Ho finito!");
     }
+
 }

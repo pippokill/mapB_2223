@@ -14,47 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package di.uniba.map.b.lab.concorrente;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
+public class MsLunch {
+
+    private long c1 = 0;
+    private long c2 = 0;
+    private final Object lock1 = new Object();
+    private final Object lock2 = new Object();
 
     /**
      *
-     * @param <K>
-     * @param <V>
-     * @return
      */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
+    public void inc1() {
+        synchronized (lock1) {
+            c1++;
+        }
     }
 
     /**
      *
-     * @param <T>
-     * @return
      */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
-
+    public void inc2() {
+        synchronized (lock2) {
+            c2++;
+        }
     }
 }

@@ -14,47 +14,38 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package di.uniba.map.b.lab.concorrente;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
-
-    /**
-     *
-     * @param <K>
-     * @param <V>
-     * @return
-     */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
-    }
-
-    /**
-     *
-     * @param <T>
-     * @return
-     */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
+public class SleepMessages1 {
 
     /**
      *
      * @param args
      */
-    public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
+    public static void main(String args[]) {
+        String importantInfo[] = {
+            "Info 1",
+            "Info 2",
+            "Info 3",
+            "Info 4"
+        };
+
+        for (int i = 0; i < importantInfo.length; i++) {
+            // Pause for 4 seconds
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                // We've been interrupted: no more messages.
+                return;
+            }
+            // Print a message
+            System.out.println(importantInfo[i]);
+        }
 
     }
+
 }

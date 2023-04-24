@@ -14,47 +14,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
+package di.uniba.map.b.lab.rete;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
+public class MultiJabberServer {
 
     /**
-     *
-     * @param <K>
-     * @param <V>
-     * @return
+     * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
+    public static void main(String[] args) throws IOException {
+        ServerSocket s = new ServerSocket(6666);
+        System.out.println("Started: " + s);
+        int r = 0;
+        try {
+            while (true) {
+                Socket socket = s.accept();
+                Thread t = new RequestThread(socket, "request-" + r);
+                r++;
+                t.start();
+            }
+        } finally {
+            s.close();
+        }
     }
 
-    /**
-     *
-     * @param <T>
-     * @return
-     */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
-
-    }
 }

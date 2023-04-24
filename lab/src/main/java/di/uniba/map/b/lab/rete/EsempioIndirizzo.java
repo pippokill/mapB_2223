@@ -14,47 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
+package di.uniba.map.b.lab.rete;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
+public class EsempioIndirizzo {
 
     /**
-     *
-     * @param <K>
-     * @param <V>
-     * @return
-     */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
-    }
-
-    /**
-     *
-     * @param <T>
-     * @return
-     */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
-
-    /**
-     *
-     * @param args
+     * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
-
+        try {
+            InetAddress add = InetAddress.getByName(null);
+            System.out.println(add);
+            add = InetAddress.getByName("localhost");
+            System.out.println(add);
+            add = InetAddress.getByName("127.0.0.1");
+            System.out.println(add);
+            add = InetAddress.getByName("www.google.it");
+            System.out.println(add);
+        } catch (UnknownHostException ex) {
+            System.err.println(ex);
+        }
     }
+    
 }

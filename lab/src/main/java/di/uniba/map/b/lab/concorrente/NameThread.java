@@ -14,47 +14,31 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package di.uniba.map.b.lab.generics;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package di.uniba.map.b.lab.concorrente;
 
 /**
  *
  * @author pierpaolo
  */
-public class New {
+public class NameThread extends Thread {
+
+    private final SynchronizedObj sobj;
 
     /**
      *
-     * @param <K>
-     * @param <V>
-     * @return
+     * @param sobj
+     * @param name
      */
-    public static <K, V> Map<K, V> map() {
-        return new HashMap<>();
+    public NameThread(SynchronizedObj sobj, String name) {
+        super(name);
+        this.sobj = sobj;
     }
 
     /**
      *
-     * @param <T>
-     * @return
      */
-    public static <T> List<T> list() {
-        return new ArrayList<>();
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        //Inferenza automatica assegnazione anche come risultato di un metodo
-        List<String> l = new ArrayList<>();
-        Map<String, List<String>> sls = New.map();
-        List<String> ls = New.list();
-
+    @Override
+    public void run() {
+        sobj.addName(this.getName());
     }
 }
