@@ -77,7 +77,7 @@ public class FireHouseGame extends GameDescription {
         bathroom.setLook("Vedo delle batterie sul mobile alla destra del lavandino.");
         Room yourRoom = new Room(4, "La tua cameratta", "Finalmente la tua cameretta!\nQuesto luogo ti è così famigliare...ma non ricordi dove hai messo il nuovo regalo di zia Lina.");
         yourRoom.setLook("C'è un armadio bianco, di solito ci conservi i tuoi giochi.");
-        //maps
+        //map
         kitchen.setEast(livingRoom);
         livingRoom.setNorth(hall);
         livingRoom.setWest(kitchen);
@@ -198,6 +198,7 @@ public class FireHouseGame extends GameDescription {
                                     }
                                     out.println();
                                 }
+                                p.getObject().setOpen(true);
                             } else {
                                 out.println("Hai aperto: " + p.getObject().getName());
                                 p.getObject().setOpen(true);
@@ -221,6 +222,7 @@ public class FireHouseGame extends GameDescription {
                                     }
                                     out.println();
                                 }
+                                p.getInvObject().setOpen(true);
                             } else {
                                 p.getInvObject().setOpen(true);
                             }
