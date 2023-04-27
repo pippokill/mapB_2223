@@ -67,7 +67,7 @@ public class SynchronizedCounter {
     public static void main(String[] args) throws InterruptedException {
         SynchronizedCounter sc = new SynchronizedCounter();
         List<Thread> l = new ArrayList();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             Thread t = new CounterThread(sc);
             l.add(t);
         }

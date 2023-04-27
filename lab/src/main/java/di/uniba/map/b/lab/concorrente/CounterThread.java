@@ -16,6 +16,8 @@
  */
 package di.uniba.map.b.lab.concorrente;
 
+import java.util.Random;
+
 /**
  *
  * @author pierpaolo
@@ -23,6 +25,8 @@ package di.uniba.map.b.lab.concorrente;
 public class CounterThread extends Thread {
 
     private final SynchronizedCounter sc;
+    
+    private final Random rnd=new Random();
 
     /**
      *
@@ -37,7 +41,7 @@ public class CounterThread extends Thread {
      */
     @Override
     public void run() {
-        double c = Math.random();
+        double c = rnd.nextDouble();
         if (c > 0.5) {
             System.out.println("Increment");
             sc.increment();
