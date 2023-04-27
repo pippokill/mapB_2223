@@ -21,15 +21,15 @@ package di.uniba.map.b.lab.concorrente;
  * @author pierpaolo
  */
 public class MsgThread extends Thread {
-    
+
     private String msg;
-    
+
     private int sec;
-    
+
     public MsgThread(String msg, int sec) {
         super();
-        this.msg=msg;
-        this.sec=sec;
+        this.msg = msg;
+        this.sec = sec;
     }
 
     /**
@@ -38,7 +38,7 @@ public class MsgThread extends Thread {
     @Override
     public void run() {
         try {
-            sleep(sec*1000);
+            sleep(sec * 1000);
         } catch (InterruptedException ex) {
             System.out.println("Mi hai interrotto.");
             return;
@@ -51,21 +51,24 @@ public class MsgThread extends Thread {
      * @param args
      */
     public static void main(String args[]) {
-        Thread t1 = new MsgThread("Ciao",4);
+        Thread t1 = new MsgThread("Ciao", 4);
         t1.start();
-        
+
         // Test join
-        /*try {
+        try {
             t1.join();
         } catch (InterruptedException ex) {
             System.err.println(ex);
-        }*/
-        for (int i=0;i<4;i++) {
-            System.out.println(i);
-            System.out.println(t1.isInterrupted());
         }
-        t1.interrupt();
-        System.out.println(t1.isInterrupted());
+        
+        Thread t2 = new MsgThread("Ciao", 4);
+        t2.start();
+        for (int i = 0; i < 4; i++) {
+            System.out.println(i);
+            System.out.println(t2.isInterrupted());
+        }
+        t2.interrupt();
+        System.out.println(t2.isInterrupted());
 
     }
 

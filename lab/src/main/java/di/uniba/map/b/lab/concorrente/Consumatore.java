@@ -68,6 +68,7 @@ public class Consumatore extends Thread {
                 if (c % 100 == 0) {
                     System.out.println("[" + getName() + "] Consumati: " + c);
                 }
+                sleep(50);
             } catch (InterruptedException ex) {
                 System.err.println("[" + getName() + "] Interrotto durante attesa.");
                 run = false;

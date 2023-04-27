@@ -36,8 +36,8 @@ public class TestProduttoreConsumatore {
     public static void main(String[] args) throws IOException, InterruptedException {
         BlockingQueue<String> queue = new LinkedBlockingQueue<>(1000);
         BufferedWriter writer = new BufferedWriter(new FileWriter("./resources/produttore.txt"));
-        Produttore p1 = new Produttore(queue, "P1", 10000);
-        Produttore p2 = new Produttore(queue, "P2", 10000);
+        Produttore p1 = new Produttore(queue, "P1", 500);
+        Produttore p2 = new Produttore(queue, "P2", 500);
         Consumatore c = new Consumatore(queue, writer);
         p1.start();
         p2.start();
