@@ -38,6 +38,8 @@ public class EsempioIndirizzo {
             System.out.println(add);
             add = InetAddress.getByName("www.google.it");
             System.out.println(add);
+            add = InetAddress.getByName("www.di.uniba.it");
+            System.out.println(add);
         } catch (UnknownHostException ex) {
             System.err.println(ex);
         }

@@ -17,7 +17,7 @@ public class TestSMT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 500; i++) {
             try {
                 JabberClient.main(new String[0]);
             } catch (IOException ex) {
