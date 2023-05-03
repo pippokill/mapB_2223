@@ -66,7 +66,8 @@ public class PetCount {
      */
     public static void main(String[] args) throws Exception {
         List pets = new ArrayList();
-        Class[] petTypes = {Class.forName("di.uniba.map.b.lab.rtti.Dog"),
+        Class[] petTypes = {
+            Class.forName("di.uniba.map.b.lab.rtti.Dog"),
             Class.forName("di.uniba.map.b.lab.rtti.Pug"),
             Class.forName("di.uniba.map.b.lab.rtti.Cat"),
             Class.forName("di.uniba.map.b.lab.rtti.Rodent"),

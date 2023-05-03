@@ -46,9 +46,12 @@ public class SweetShop {
      */
     public static void main(String[] args) {
         System.out.println("inside main");
+        new Candy();
+        new Candy();
         try {
-            new Candy();
-            //Class.forName("di.uniba.map.b.lab.rtti.Candy");
+            //Class<Candy> candyClass = Candy.class;
+            Class<?> candyClass = Class.forName("di.uniba.map.b.lab.rtti.Candy");
+            System.out.println(candyClass.getName());
             //Candy.class.newInstance();
             System.out.println("After creating Candy");
             Class.forName("Gum");
