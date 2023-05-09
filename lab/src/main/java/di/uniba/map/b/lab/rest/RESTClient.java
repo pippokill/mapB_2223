@@ -37,11 +37,11 @@ public class RESTClient {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:4321");
         
-        Response resp = target.path("book").queryParam("id", "1").request(MediaType.APPLICATION_JSON).get();
+        Response resp = target.path("book").queryParam("id", "12").request(MediaType.APPLICATION_JSON).get();
         System.out.println(resp);
         System.out.println(resp.readEntity(String.class));
         
-        resp = target.path("book/1").request(MediaType.APPLICATION_JSON).get();
+        resp = target.path("book/16").request(MediaType.APPLICATION_JSON).get();
         System.out.println(resp);
         System.out.println(resp.readEntity(String.class));
 
