@@ -86,7 +86,7 @@ public class Esercizio1 {
                     .average().getAsDouble();
             System.out.println(es6);
             //NB: questa implementazione è più lenta in quanto ogni volta devo cercare nella lista dei movie
-            /*double es6_1 = movielens.getRatings().stream()
+            double es6_1 = movielens.getRatings().stream()
                     .filter(r -> {
                         int idx = movielens.getMovies().indexOf(new Movie(r.getMovieId(), ""));
                         if (idx >= 0 && movielens.getMovies().get(idx).getGenres().contains("Comedy")) {
@@ -97,7 +97,7 @@ public class Esercizio1 {
                     })
                     .mapToDouble(r -> r.getRating())
                     .average().getAsDouble();
-            System.out.println(es6_1);*/
+            System.out.println(es6_1);
             //7. calcolare il rating medio raggruppando per genere del movie
             //viene riutilizzata la prima soluzione dell'esercizio 6 che viene applicata ad
             //ogni genere
