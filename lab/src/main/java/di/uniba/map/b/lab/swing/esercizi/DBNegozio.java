@@ -8,7 +8,6 @@ package di.uniba.map.b.lab.swing.esercizi;
 import di.uniba.map.b.lab.collection.esercizi.Articolo;
 import di.uniba.map.b.lab.collection.esercizi.Utente;
 import di.uniba.map.b.lab.collection.esercizi.UtentePrime;
-import static di.uniba.map.b.lab.jdbc.EsempiJDBC.CREATE_TABLE;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,7 +61,7 @@ public class DBNegozio {
         Properties dbprops = new Properties();
         dbprops.setProperty("user", "user");
         dbprops.setProperty("password", "1234");
-        connection = DriverManager.getConnection("jdbc:h2:./resources/db/store", dbprops);
+        connection = DriverManager.getConnection("jdbc:h2:./resources/db/storegui", dbprops);
         Statement stm = connection.createStatement();
         stm.executeUpdate(CREATE_TABLE_ARTICLE);
         stm.close();
