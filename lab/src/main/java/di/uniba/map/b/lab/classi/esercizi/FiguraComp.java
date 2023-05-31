@@ -55,6 +55,10 @@ public abstract class FiguraComp implements Figura, Comparable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;

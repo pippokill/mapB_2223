@@ -32,6 +32,10 @@ public class SuperTypeWildcards {
         //apples.add(new Fruit()); // Fruit doesn’t extend Apple
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         List<Apple> l = new ArrayList<>();
         writeTo(l);

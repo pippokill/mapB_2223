@@ -24,6 +24,13 @@ import java.util.logging.Logger;
  */
 public class TextProcessing {
 
+    /**
+     *
+     * @param file
+     * @param toLowerCase
+     * @return
+     * @throws IOException
+     */
     public static Map<String, Integer> count(File file, boolean toLowerCase) throws IOException {
         Map<String, Integer> count = new HashMap<>();
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -47,6 +54,12 @@ public class TextProcessing {
         return count;
     }
 
+    /**
+     *
+     * @param count
+     * @param file
+     * @throws IOException
+     */
     public static void save(Map<String, Integer> count, File file) throws IOException {
         FileOutputStream out = new FileOutputStream(file);
         ObjectOutputStream outStream = new ObjectOutputStream(out);
@@ -54,6 +67,13 @@ public class TextProcessing {
         outStream.close();
     }
 
+    /**
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static Map<String, Integer> load(File file) throws IOException, ClassNotFoundException {
         FileInputStream in = new FileInputStream(file);
         ObjectInputStream inStream = new ObjectInputStream(in);

@@ -22,6 +22,10 @@ package di.uniba.map.b.lab.generics;
  */
 public class Apple extends Fruit {
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Apple";

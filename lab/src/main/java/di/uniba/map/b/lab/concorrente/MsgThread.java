@@ -26,6 +26,11 @@ public class MsgThread extends Thread {
 
     private int sec;
 
+    /**
+     *
+     * @param msg
+     * @param sec
+     */
     public MsgThread(String msg, int sec) {
         super();
         this.msg = msg;

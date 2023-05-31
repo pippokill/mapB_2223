@@ -12,10 +12,17 @@ public class ClassA1 {
     
     private String msg;
     
+    /**
+     *
+     * @param msg
+     */
     public ClassA1(String msg) {
         this.msg=msg;
     }
     
+    /**
+     *
+     */
     public void printMe() {
         System.out.println(msg);
     }
